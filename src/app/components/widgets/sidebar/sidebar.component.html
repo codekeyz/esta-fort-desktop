@@ -1,0 +1,100 @@
+<aside class="main-sidebar">
+  <section class="sidebar">
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img
+          src="./assets/images/dp.png"
+          class="img-circle"
+          alt="Precious Keyz Image"
+        />
+      </div>
+      <div class="pull-left info">
+        <p>The Administrator</p>
+        <a><i class="fa fa-circle text-success"></i> Online</a>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <li
+        title="Dashboard"
+        class="treeview"
+        routerLinkActive
+        #das="routerLinkActive"
+        [routerLink]="['/dashboard']"
+        [class.active]="das.isActive"
+      >
+        <a href="#">
+          <i class="fa fa-dashboard"></i> <span> Dashboard</span>
+        </a>
+      </li>
+
+      <li
+        title="announcements"
+        class="treeview"
+        routerLinkActive
+        #ann="routerLinkActive"
+        [routerLink]="['/announcements']"
+        [class.active]="ann.isActive"
+      >
+        <a href="#">
+          <i class="fa fa-bell-o"></i> <span> Announcements</span>
+        </a>
+      </li>
+
+      <li
+        title="Send Notification"
+        class="treeview"
+        routerLinkActive
+        #not="routerLinkActive"
+        [class.active]="not.isActive"
+      >
+        <a href="#">
+          <i class="fa fa-bullhorn"></i> <span> Send Notification</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu" style="display: none;">
+          <li
+            routerLinkActive
+            #notreg="routerLinkActive"
+            [class.active]="notreg.isActive"
+          >
+            <a [routerLink]="['/sendnotification/region']"
+              ><i class="fa fa-circle-o"></i> Region</a
+            >
+          </li>
+          <li
+            routerLinkActive
+            #notdis="routerLinkActive"
+            [class.active]="notdis.isActive"
+          >
+            <a [routerLink]="['/sendnotification/district']"
+              ><i class="fa fa-circle-o"></i> District</a
+            >
+          </li>
+        </ul>
+      </li>
+
+      <li
+        title="App Settings"
+        class="treeview"
+        routerLinkActive
+        #apset="routerLinkActive"
+        [routerLink]="['/settings']"
+        [class.active]="apset.isActive"
+      >
+        <a href="#"> <i class="fa fa-gears"></i> <span> App Settings</span> </a>
+      </li>
+
+      <li title="Sign Out" class="treeview" (click)="logout()">
+        <a href="#">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <span> Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</aside>

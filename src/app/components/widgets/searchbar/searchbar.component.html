@@ -1,0 +1,20 @@
+<div class="autocomplete" style="width: 200px;">
+  <div class="has-feedback">
+    <input
+      (focus)="myFocusVar = true"
+      (blur)="myFocusVar = false"
+      id="mySearch"
+      type="text"
+      [formControl]="searchControl"
+      class="form-control input-sm"
+      placeholder="Search for a district or region"
+    />
+    <span
+      id="searchIcon"
+      class="glyphicon glyphicon-search form-control-feedback"
+    ></span>
+  </div>
+  <div class="autocomplete-items" *ngIf="myFocusVar == true">
+    <ng-content></ng-content>
+  </div>
+</div>
