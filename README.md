@@ -1,6 +1,6 @@
 [![Angular Logo](./logo-angular.jpg)](https://angular.io/) [![Electron Logo](./logo-electron.jpg)](https://electron.atom.io/)
 [![Screenshot from Ubuntu](./ubuntu-screenshot.jpg)]
-[![Screenshot from Windows](./windows-screenshot.jpg)]
+[![Screenshot from Windows](./windows-screenshot.png)]
 
 # Introduction
 
