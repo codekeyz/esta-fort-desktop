@@ -51,4 +51,6 @@ export class AppComponent implements OnInit {
   public getRouterOutletState(outlet) {
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
+
+  logout() {}
 }
