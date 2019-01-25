@@ -25,9 +25,7 @@ import { ProgressComponent } from './components/widgets/progress/progress.compon
 import { DialogComponent } from './components/widgets/dialog/dialog.component';
 import * as bootstrap from 'bootstrap';
 import * as slimScroll from 'jquery-slimscroll';
-import { AnnouncementsComponent } from './components/announcements/announcements.component';
 import { NotificationComponent } from './components/notification/notification.component';
-import { NoticeboardComponent } from './components/noticeboard/noticeboard.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { SearchbarComponent } from './components/widgets/searchbar/searchbar.component';
 
@@ -47,9 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
     ProgressComponent,
     DialogComponent,
-    AnnouncementsComponent,
     NotificationComponent,
-    NoticeboardComponent,
     DashboardComponent,
 
     SearchbarComponent
