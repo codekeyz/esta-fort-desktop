@@ -24,19 +24,8 @@
               "src/favicon.256x256.png",
               "src/favicon.512x512.png"
             ],
-            "styles": [
-              "src/styles.scss",
-              "src/assets/bower_components/bootstrap/dist/css/bootstrap.min.css",
-              "src/assets/bower_components/font-awesome/css/font-awesome.min.css",
-              "src/assets/dist/css/AdminLTE.css",
-              "src/assets/dist/css/skins/skin-green.css"
-            ],
-            "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "src/assets/bower_components/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
-              "src/assets/dist/js/adminlte.js"
-            ]
+            "styles": ["src/assets/styles.scss"],
+            "scripts": ["src/assets/app.js"]
           },
           "configurations": {
             "dev": {
