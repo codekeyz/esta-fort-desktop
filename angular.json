@@ -25,7 +25,12 @@
               "src/favicon.512x512.png"
             ],
             "styles": ["src/assets/styles.scss"],
-            "scripts": ["src/assets/app.js"]
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/jquery-slimscroll/jquery.slimscroll.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/dist/js/adminlte.js"
+            ]
           },
           "configurations": {
             "dev": {
