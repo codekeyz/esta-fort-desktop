@@ -1,15 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { NotificationComponent } from './notification/notification.component';
 import { MainappComponent } from './mainapp.component';
 import { Routes, RouterModule } from '@angular/router';
 import { WidgetsModule } from '../widgets/widgets.module';
+import { RequestComponent } from './request/request.component';
+import { PeopleComponent } from './people/people.component';
+import { AuthGuard } from '../../guards/auth.guard';
 
 const route: Routes = [
   {
     path: '',
     component: MainappComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'dashboard', pathMatch: 'prefix' },
       {
@@ -17,16 +20,25 @@ const route: Routes = [
         component: DashboardComponent
       },
       {
-        path: 'notification',
-        component: NotificationComponent
+        path: 'requests',
+        component: RequestComponent
+      },
+      {
+        path: 'people',
+        component: PeopleComponent
       }
     ]
   }
 ];
 
 @NgModule({
-  declarations: [DashboardComponent, NotificationComponent, MainappComponent],
+  declarations: [
+    DashboardComponent,
+    MainappComponent,
+    RequestComponent,
+    PeopleComponent
+  ],
   imports: [CommonModule, RouterModule.forChild(route), WidgetsModule],
-  exports: [RouterModule, WidgetsModule]
+  exports: [RouterModule]
 })
 export class MainappModule {}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from '../../../providers/electron.service';
+import { ElectronService } from '../../core/electron.service';
 declare let jQuery: any;
 
 @Component({
