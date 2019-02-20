@@ -1,11 +1,22 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TitlebarComponent } from './titlebar/titlebar.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
+import { AngularFireModule } from '@angular/fire';
+import { AppConfig } from '../../../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { ElectronService } from './electron.service';
+import { AuthService } from './auth.service';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 
 @NgModule({
-  declarations: [TitlebarComponent, SidebarComponent],
-  imports: [CommonModule],
-  exports: [TitlebarComponent, SidebarComponent]
+  declarations: [TitlebarComponent],
+  imports: [
+    CommonModule,
+    AngularFireModule.initializeApp(AppConfig.firebase),
+    AngularFirestoreModule.enablePersistence(),
+    AngularFireAuthModule
+  ],
+  exports: [TitlebarComponent],
+  providers: [ElectronService, AuthService]
 })
 export class CoreModule {}

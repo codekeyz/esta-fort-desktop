@@ -1,3 +1,71 @@
-<div [@fadeAnimation]="getRouterOutletState(o)">
+<app-sidebar>
+  <section class="sidebar">
+    <div class="user-panel">
+      <div class="pull-left image">
+        <img
+          src="assets/images/dp.png"
+          class="img-circle"
+          alt="Precious Keyz Image"
+        />
+      </div>
+      <div class="pull-left info">
+        <p>The Administrator</p>
+        <a><i class="fa fa-circle text-primary"></i> Online</a>
+      </div>
+    </div>
+
+    <ul class="sidebar-menu" data-widget="tree">
+      <li class="header">MAIN NAVIGATION</li>
+
+      <li
+        title="Dashboard"
+        class="treeview"
+        routerLinkActive
+        #das="routerLinkActive"
+        [routerLink]="['/me/dashboard']"
+        [class.active]="das.isActive"
+      >
+        <a [routerLink]="['/me/dashboard']">
+          <i class="fa fa-dashboard"></i> <span> Dashboard</span>
+        </a>
+      </li>
+
+      <li
+        title="Requests"
+        class="treeview"
+        routerLinkActive
+        #req="routerLinkActive"
+        [routerLink]="['/me/requests']"
+        [class.active]="req.isActive"
+      >
+        <a [routerLink]="['/me/requests']">
+          <i class="fa fa-hand-spock-o"></i> <span> Requests</span>
+        </a>
+      </li>
+
+      <li
+        title="People"
+        class="treeview"
+        routerLinkActive
+        #peo="routerLinkActive"
+        [routerLink]="['/me/people']"
+        [class.active]="peo.isActive"
+      >
+        <a [routerLink]="['/me/people']">
+          <i class="fa fa-group"></i> <span> People</span>
+        </a>
+      </li>
+
+      <li title="Sign Out" class="treeview" (click)="logout()">
+        <a>
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+          <span> Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+</app-sidebar>
+
+<div class="content-wrapper" [@fadeAnimation]="getRouterOutletState(o)">
   <router-outlet #o="outlet"></router-outlet>
 </div>

@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation, OnInit } from '@angular/core';
-import { ElectronService } from './providers/electron.service';
+import { ElectronService } from './components/core/electron.service';
 import { TranslateService } from '@ngx-translate/core';
 import { AppConfig } from '../environments/environment';
 import { fadeAnimation } from '../app/app.animations';
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.appTitle = 'Electron - Angular - AdminLTE Starter';
+    this.appTitle = 'EstaFort';
     this.setupResizer();
   }
 

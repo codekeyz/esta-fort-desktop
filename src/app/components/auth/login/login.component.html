@@ -1,0 +1,45 @@
+<div class="login-box">
+  <div class="login-box-body">
+    <p class="login-box-msg">Sign in to start your session</p>
+
+    <form (submit)="signin()">
+      <div class="form-group has-feedback">
+        <input
+          name="email"
+          [(ngModel)]="email"
+          #em="ngModel"
+          class="form-control"
+          placeholder="Email"
+          type="email"
+          required
+          email="true"
+          [pattern]="'^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$'"
+        />
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+      </div>
+      <div class="form-group has-feedback">
+        <input
+          [(ngModel)]="password"
+          name="password"
+          type="password"
+          #pass="ngModel"
+          class="form-control"
+          placeholder="Password"
+          required
+        />
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <button
+            type="submit"
+            class="btn btn-primary btn-block btn-flat"
+            [disabled]="em.invalid || pass.invalid"
+          >
+            Sign In
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
