@@ -1,11 +1,16 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CanActivate } from '@angular/router/src/utils/preactivation';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'mainapp', pathMatch: 'prefix' },
+  { path: '', redirectTo: 'me', pathMatch: 'prefix' },
   {
-    path: 'mainapp',
+    path: 'me',
     loadChildren: './components/mainapp/mainapp.module#MainappModule'
+  },
+  {
+    path: 'auth',
+    loadChildren: './components/auth/auth.module#AuthModule'
   }
 ];
 
