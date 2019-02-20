@@ -28,10 +28,10 @@
         class="treeview"
         routerLinkActive
         #das="routerLinkActive"
-        [routerLink]="['dashboard']"
+        [routerLink]="['/mainapp/dashboard']"
         [class.active]="das.isActive"
       >
-        <a href="#">
+        <a [routerLink]="['/mainapp/dashboard']">
           <i class="fa fa-dashboard"></i> <span> Dashboard</span>
         </a>
       </li>
@@ -41,16 +41,16 @@
         class="treeview"
         routerLinkActive
         #ann="routerLinkActive"
-        [routerLink]="['notification']"
+        [routerLink]="['/mainapp/notification']"
         [class.active]="ann.isActive"
       >
-        <a [routerLink]="['notification']">
+        <a [routerLink]="['/mainapp/notification']">
           <i class="fa fa-bell-o"></i> <span> Announcements</span>
         </a>
       </li>
 
       <li title="Sign Out" class="treeview" (click)="logout()">
-        <a href="#">
+        <a>
           <i class="fa fa-sign-out" aria-hidden="true"></i>
           <span> Sign Out</span>
         </a>
@@ -59,6 +59,6 @@
   </section>
 </app-sidebar>
 
-<div class="content-wrapper" [@fadeAnimation]="getRouterOutletState(o)">
-  <router-outlet #o="outlet"></router-outlet>
+<div class="content-wrapper">
+  <router-outlet></router-outlet>
 </div>

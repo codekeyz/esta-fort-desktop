@@ -17,17 +17,9 @@ import { ElectronService } from './providers/electron.service';
 import { WebviewDirective } from './directives/webview.directive';
 
 import { AppComponent } from './app.component';
-import { TitlebarComponent } from './components/widgets/titlebar/titlebar.component';
-import { SidebarComponent } from './components/widgets/sidebar/sidebar.component';
-import { ContentHeaderComponent } from './components/widgets/content-header/content-header.component';
-import { InfoboxComponent } from './components/widgets/infobox/infobox.component';
-import { ProgressComponent } from './components/widgets/progress/progress.component';
-import { DialogComponent } from './components/widgets/dialog/dialog.component';
 import * as bootstrap from 'bootstrap';
 import * as slimScroll from 'jquery-slimscroll';
-import { NotificationComponent } from './components/notification/notification.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { SearchbarComponent } from './components/widgets/searchbar/searchbar.component';
+import { CoreModule } from './components/core/core.module';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -35,30 +27,13 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    WebviewDirective,
-    TitlebarComponent,
-    SidebarComponent,
-    ContentHeaderComponent,
-    InfoboxComponent,
-
-    ProgressComponent,
-    DialogComponent,
-    NotificationComponent,
-    DashboardComponent,
-
-    SearchbarComponent
-  ],
+  declarations: [AppComponent, WebviewDirective],
   imports: [
     BrowserModule,
-
     BrowserAnimationsModule,
-    FormsModule,
-    ReactiveFormsModule,
+    CoreModule,
     AppRoutingModule,
     HttpClientModule,
-
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
