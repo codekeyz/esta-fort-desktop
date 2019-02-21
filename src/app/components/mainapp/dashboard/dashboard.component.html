@@ -5,6 +5,7 @@
         title="Users"
         color="bg-aqua"
         icon="fa fa-group"
+        [value]="(users$ | async)?.length || 0"
       ></app-infobox>
     </div>
 
@@ -13,7 +14,7 @@
         title="Requests"
         color="bg-red"
         icon="fa fa-hand-spock-o"
-        value="41,410"
+        [value]="(requests$ | async)?.length || 0"
       ></app-infobox>
     </div>
     <!-- /.col -->
@@ -23,7 +24,7 @@
         title="Drivers"
         color="bg-green"
         icon="fa fa-cab"
-        value="760"
+        [value]="(drivers$ | async)?.length || 0"
       ></app-infobox>
     </div>
   </div>
@@ -32,6 +33,8 @@
     <app-request
       [showHeader]="false"
       [subtitle]="'Recent Requests'"
+      [handleself]="false"
+      [requestData]="requests$ | async"
     ></app-request>
   </div>
 </section>

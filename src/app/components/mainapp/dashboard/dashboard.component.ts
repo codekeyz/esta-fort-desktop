@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ElectronService } from '../../core/electron.service';
+import { DataService } from '../../core/data.service';
+import { Observable } from 'rxjs';
+import { Request, User, Driver } from '../../../app.models';
 declare let jQuery: any;
 
 @Component({
@@ -8,23 +10,15 @@ declare let jQuery: any;
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  constructor(private elsService: ElectronService) {}
+  requests$: Observable<Request[]>;
+  users$: Observable<User[]>;
+  drivers$: Observable<Driver[]>
+
+  constructor(private dataSvc: DataService) {}
 
   ngOnInit() {
-    this.init();
-
-    $(window).resize(function() {
-      jQuery('#myBox').css(
-        'max-height',
-        $(window).height() - $('.main-header').height() - 140
-      );
-    });
-  }
-
-  init() {
-    jQuery('#myBox').css(
-      'max-height',
-      $(window).height() - $('.main-header').height() - 140
-    );
+    this.requests$ = this.dataSvc._getDataList<Request>('Requests');
+    this.users$ = this.dataSvc._getDataList<User>('Users');
+    this.drivers$ = this.dataSvc._getDataList<Driver>('Drivers');
   }
 }
