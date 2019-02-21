@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-request',
@@ -6,10 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./request.component.scss']
 })
 export class RequestComponent implements OnInit {
+  @Input() showHeader = true;
 
-  constructor() { }
+  @Input() subtitle = 'Showing All Requests';
 
-  ngOnInit() {
-  }
+  @Input() title = 'Requests';
 
+  constructor() {}
+
+  ngOnInit() {}
 }
