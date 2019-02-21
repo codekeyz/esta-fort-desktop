@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeAnimation } from '../../app.animations';
+import { AuthService } from '../core/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mainapp',
@@ -8,7 +10,7 @@ import { fadeAnimation } from '../../app.animations';
   animations: [fadeAnimation]
 })
 export class MainappComponent implements OnInit {
-  constructor() {}
+  constructor(private authSvc: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
@@ -16,5 +18,7 @@ export class MainappComponent implements OnInit {
     return outlet.isActivated ? outlet.activatedRoute : '';
   }
 
-  logout() {}
+  logout() {
+    this.authSvc.signOut().then(() => this.router.navigate(['/auth/login']));
+  }
 }
