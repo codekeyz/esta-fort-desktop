@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Request } from '../../../app.models';
 
 @Component({
   selector: 'app-request',
@@ -11,6 +12,10 @@ export class RequestComponent implements OnInit {
   @Input() subtitle = 'Showing All Requests';
 
   @Input() title = 'Requests';
+
+  @Input() requestData: Request[] = [];
+
+  @Input() handleself = true;
 
   constructor() {}
 

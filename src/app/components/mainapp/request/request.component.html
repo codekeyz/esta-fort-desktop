@@ -20,18 +20,18 @@
               <td></td>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let request of requestData">
                 <td>
                   <img
-                    src="assets/images/dp.png"
-                    alt="Product 1"
+                    [src]="request.user.displayImage || 'assets/images/dp.png'"
+                    [alt]="request.user.username"
                     class="img-circle"
                     style="width: 32px; height: auto; margin-right: .5rem!important;                    "
                   />
-                  Precious Keyz
+                  {{ request.user.username }}
                 </td>
-                <td></td>
-                <td></td>
+                <td>{{ request.date_created }}</td>
+                <td>{{ request.status }}</td>
                 <td></td>
               </tr>
             </tbody>
