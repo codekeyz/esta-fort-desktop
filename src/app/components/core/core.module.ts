@@ -7,6 +7,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { ElectronService } from './electron.service';
 import { AuthService } from './auth.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [TitlebarComponent],
@@ -17,6 +18,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     AngularFireAuthModule
   ],
   exports: [TitlebarComponent],
-  providers: [ElectronService, AuthService]
+  providers: [ElectronService, AuthService, DataService]
 })
 export class CoreModule {}
