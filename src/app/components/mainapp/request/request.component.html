@@ -12,9 +12,10 @@
           <table class="table table-striped table-valign-middle">
             <thead class="no-select">
               <tr>
-                <th style="width: 35%">User</th>
-                <th style="width: 30%">Timestamp</th>
-                <th style="width: 15%">Status</th>
+                <th style="width: 30%">User</th>
+                <th style="width: 25%">Driver</th>
+                <th style="width: 15%">Timestamp</th>
+                <th style="width: 10%">Status</th>
                 <th style="width: 20%"></th>
               </tr>
               <td></td>
@@ -23,15 +24,31 @@
               <tr *ngFor="let request of requestData">
                 <td>
                   <img
-                    [src]="request.user.displayImage || 'assets/images/dp.png'"
-                    [alt]="request.user.username"
+                    [src]="request.displayImage || 'assets/images/dp.png'"
+                    [alt]="request.userName"
                     class="img-circle"
                     style="width: 32px; height: auto; margin-right: .5rem!important;                    "
                   />
-                  {{ request.user.username }}
+                  {{ request.userName }}
                 </td>
-                <td>{{ request.date_created }}</td>
-                <td>{{ request.status }}</td>
+                <td>
+                  {{ request.driverName }}
+                </td>
+                <td>
+                  {{ getDate(request.date_created).toLocaleDateString() }}
+                </td>
+                <td>
+                  <span
+                    class="label"
+                    [class.label-warning]="request.status === 0"
+                    [class.label-primary]="request.status === 1"
+                    [class.label-success]="request.status === 2"
+                  >
+                    <span *ngIf="request.status === 0">Placed</span>
+                    <span *ngIf="request.status === 1">Confirmed</span>
+                    <span *ngIf="request.status === 2">In Progress</span>
+                  </span>
+                </td>
                 <td></td>
               </tr>
             </tbody>

@@ -20,4 +20,8 @@ export class RequestComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {}
+
+  getDate(milliseconds) {
+    return new Date(milliseconds);
+  }
 }
