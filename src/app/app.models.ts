@@ -1,11 +1,10 @@
 export interface Request {
   id: string;
-  user: User;
-  request: string;
+  userName: string;
+  driverName: string;
   date_created: Date;
   date_confirmed: Date;
   status: number;
-  type: number;
 }
 
 export interface User {
@@ -13,4 +12,8 @@ export interface User {
   username: string;
   email: string;
   phone: string;
+}
+
+export interface Driver extends User {
+  status: number;
 }
