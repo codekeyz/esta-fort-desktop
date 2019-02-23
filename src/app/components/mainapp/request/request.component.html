@@ -9,7 +9,10 @@
         </div>
 
         <div class="box-body">
-          <table class="table table-striped table-valign-middle">
+          <table
+            class="table table-striped table-valign-middle"
+            *ngIf="requestData && requestData.length > 0; else noRequests"
+          >
             <thead class="no-select">
               <tr>
                 <th style="width: 30%">User</th>
@@ -23,7 +26,7 @@
               <tr *ngFor="let request of requestData">
                 <td>
                   <img
-                    [src]="request.displayImage || 'assets/images/dp.png'"
+                    [src]="request.userImage || 'assets/images/dp.png'"
                     [alt]="request.userName"
                     class="img-circle"
                     style="width: 32px; height: auto; margin-right: .5rem!important;                    "
@@ -48,11 +51,29 @@
                     <span *ngIf="request.status === 2">In Progress</span>
                   </span>
                 </td>
-                <td></td>
               </tr>
             </tbody>
           </table>
         </div>
+
+        <ng-template #noRequests>
+          <div class="loading">
+            <div class="overlay">
+              <i class="fa fa-chain-broken"></i>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #loading>
+          <div class="loading">
+            <div class="overlay">
+              <i
+                class="fa fa-circle-o-notch fa-spin"
+                style="color: #0d6aad"
+              ></i>
+            </div>
+          </div>
+        </ng-template>
       </div>
     </div>
   </div>

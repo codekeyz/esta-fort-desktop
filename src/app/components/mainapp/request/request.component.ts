@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '../../../app.models';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-request',
@@ -13,9 +14,11 @@ export class RequestComponent implements OnInit {
 
   @Input() title = 'Requests';
 
-  @Input() requestData: Request[] = [];
+  @Input() requestData: Request[];
 
   @Input() handleself = true;
+
+  requests$: Observable<Request[]>;
 
   constructor() {}
 
