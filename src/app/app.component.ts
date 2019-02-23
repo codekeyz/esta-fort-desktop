@@ -19,7 +19,6 @@ export class AppComponent implements OnInit {
     private translate: TranslateService
   ) {
     this.translate.setDefaultLang('en');
-    console.log('AppConfig', AppConfig);
 
     if (elSvc.isElectron()) {
       this.ourApp = elSvc.getAppWindow();
@@ -47,6 +46,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  logout() {}
 }
