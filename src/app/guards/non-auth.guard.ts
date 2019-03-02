@@ -21,9 +21,11 @@ export class NonAuthGuard implements CanActivate {
   ): Observable<boolean> {
     return this.afAuth.user.pipe(
       take(1),
-      map(user => !!user),
+      map(user => !user),
       tap(loggedIn => {
-        if (loggedIn) {
+        console.log(loggedIn);
+
+        if (!loggedIn) {
           this.router.navigate(['/me/dashboard'], {
             queryParams: { returnUrl: state.url }
           });
