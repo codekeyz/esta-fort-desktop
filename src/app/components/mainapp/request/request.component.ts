@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '../../../app.models';
 import { Observable } from 'rxjs';
+import { DataService } from '../../core/data.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-request',
@@ -18,11 +20,24 @@ export class RequestComponent implements OnInit {
 
   @Input() handleself = true;
 
-  requests$: Observable<Request[]>;
+  constructor(private dataSvc: DataService) {}
 
-  constructor() {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.handleself) {
+      this.dataSvc
+        ._getDataList<Request>('Requests', qr =>
+          qr.orderBy('date_created', 'asc')
+        )
+        .pipe(
+          tap(res =>
+            res.sort((a, b) => {
+              return a.status < b.status ? -1 : 1;
+            })
+          )
+        )
+        .subscribe(data => (this.requestData = data));
+    }
+  }
 
   getDate(milliseconds) {
     return new Date(milliseconds);
