@@ -18,7 +18,7 @@ export interface User {
   username: string;
   location: string;
   email: string;
-  phone: string;
+  telephone: string;
   token: string;
 }
 
