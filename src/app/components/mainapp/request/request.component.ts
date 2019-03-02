@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Request } from '../../../app.models';
-import { Observable } from 'rxjs';
 import { DataService } from '../../core/data.service';
 import { tap } from 'rxjs/operators';
 
