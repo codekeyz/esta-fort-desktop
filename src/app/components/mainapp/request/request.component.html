@@ -43,12 +43,18 @@
                   <span
                     class="label"
                     [class.label-warning]="request.status === 0"
-                    [class.label-primary]="request.status === 1"
-                    [class.label-success]="request.status === 2"
+                    [class.label-info]="request.status === 1"
+                    [class.label-primary]="
+                      request.status === 2 || request.status === 3
+                    "
+                    [class.label-success]="request.status === 4"
                   >
                     <span *ngIf="request.status === 0">Placed</span>
                     <span *ngIf="request.status === 1">Confirmed</span>
-                    <span *ngIf="request.status === 2">In Progress</span>
+                    <span *ngIf="request.status === 2 || request.status === 3"
+                      >In Progress</span
+                    >
+                    <span *ngIf="request.status === 4">Completed</span>
                   </span>
                 </td>
               </tr>
