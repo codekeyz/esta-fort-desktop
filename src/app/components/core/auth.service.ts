@@ -9,19 +9,7 @@ import { switchMap } from 'rxjs/operators';
 
 @Injectable()
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {
-    // //// Get auth data, then get firestore user document || null
-    // this.user = this.afAuth.authState.pipe(
-    //   switchMap(user => {
-    //     if (user) {
-    //       return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-    //     } else {
-    //       return of(null);
-    //     }
-    //   })
-    // );
-    this.afAuth.authState.subscribe(user => console.log(user));
-  }
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore) {}
 
   login(email: string, password: string) {
     return this.afAuth.auth.signInWithEmailAndPassword(email, password);
