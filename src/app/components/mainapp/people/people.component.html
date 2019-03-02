@@ -1,3 +1,52 @@
-<p>
-  people works!
-</p>
+<app-content-header [title]="'Users'"></app-content-header>
+
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">List of Users</h3>
+        </div>
+
+        <div class="box-body">
+          <table
+            class="table table-striped table-valign-middle"
+            *ngIf="users && users.length > 0; else noUsers"
+          >
+            <thead class="no-select">
+              <tr>
+                <th style="width: 30%">User</th>
+                <th style="width: 25%">Driver</th>
+                <th style="width: 25%">Timestamp</th>
+                <th style="width: 20%">Status</th>
+              </tr>
+              <td></td>
+            </thead>
+            <tbody>
+              <tr></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <ng-template #noUsers>
+          <div class="loading">
+            <div class="overlay">
+              <i class="fa fa-chain-broken"></i>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template #loading>
+          <div class="loading">
+            <div class="overlay">
+              <i
+                class="fa fa-circle-o-notch fa-spin"
+                style="color: #0d6aad"
+              ></i>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
