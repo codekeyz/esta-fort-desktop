@@ -18,13 +18,17 @@ export class DashboardComponent implements OnInit {
   constructor(private dataSvc: DataService) {}
 
   ngOnInit() {
-    this.requests$ = this.dataSvc._getDataList<Request>('Requests').pipe(
-      tap(res =>
-        res.sort((a, b) => {
-          return a.status < b.status ? -1 : 1;
-        })
+    this.requests$ = this.dataSvc
+      ._getDataList<Request>('Requests', qr =>
+        qr.orderBy('date_created', 'desc')
       )
-    );
+      .pipe(
+        tap(res =>
+          res.sort((a, b) => {
+            return a.status < b.status ? -1 : 1;
+          })
+        )
+      );
     this.users$ = this.dataSvc._getDataList<User>('Users');
     this.drivers$ = this.dataSvc._getDataList<Driver>('Drivers');
   }
